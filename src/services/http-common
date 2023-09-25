@@ -1,0 +1,12 @@
+import axios from "axios";
+
+// bu dosyada axiosa spring url adresimizi belirtecegiz ve sonra json verisi döndürdügünü belirtecegiz.
+// (cünkü springten json veya xml dönebilir. axiosun bunu bilmesi lazım)
+const service = axios.create({
+    baseURL: "http://localhost:8080/api",
+    headers: {"Content-type": "application/json"},    //api tarafından json mı xml mi dönüyor onu belirtiyoruz.
+    timeout: 30000,                                   //sunucunun yanıt verme süresini belirtiriz ms türünde.
+    timeoutErrorMessage: "Sunucu yanıt vermiyor."     //yanıt verme süresi doldugunda kullanıcıya gösterilecek mesaj.
+});
+export default service;
+
